@@ -8,15 +8,19 @@ const App = () => {
   const funcaoOK = () => alert('Agradecemos a confirmação')
   const funcaoNOK = () => alert('Verificaremos o ocorrido')
   const componenteFeedback = (
-    <Feedback 
-      textoOK = {textoOK}
-      textoNOK = {textoNOK}
-      funcaoOK = {funcaoOK}
-      funcaoNOK = {funcaoNOK}
+    <Feedback
+      textoOK={textoOK}
+      textoNOK={textoNOK}
+      funcaoOK={funcaoOK}
+      funcaoNOK={funcaoNOK}
     />
   )
   return (
     <div className="container border mt-2">
+      
+      <div className="row border-bottom m-2">
+        <h1 className="display-5 text-center">Seus pedidos</h1>
+      </div>
 
       <div className='row'>
 
@@ -28,7 +32,7 @@ const App = () => {
               titulo="SSD"
               descricao="Um SSD de 512Gb"
               icone="hdd" />
-              {componenteFeedback}
+            {componenteFeedback}
           </Cartao>
         </div>
 
@@ -39,7 +43,7 @@ const App = () => {
               titulo="Livro"
               descricao="Harry Potter"
               icone="book" />
-              {componenteFeedback}
+            {componenteFeedback}
           </Cartao>
         </div>
         <div className="col-sm-12 col-lg-6 col-xxl-4">
@@ -49,7 +53,7 @@ const App = () => {
               titulo="Hipopótamo"
               descricao="De verdade"
               icone="hippo" />
-              {componenteFeedback}
+            {componenteFeedback}
           </Cartao>
         </div>
         <div className="col-sm-12 col-lg-6 col-xxl-4">
@@ -59,7 +63,7 @@ const App = () => {
               titulo="Boneco de neve"
               descricao="Balanga sozinho"
               icone="snowman fa-shake" />
-              {componenteFeedback}
+            {componenteFeedback}
           </Cartao>
         </div>
 

@@ -1,11 +1,7 @@
 const Cartao = (props) => {
     return(
 
-        <div className="card">
-            <div className="card-header text-muted">
-                {props.usuario}
-            </div>
-
+        <div className="card rounded m-2 p-2 shadow">
             <div className="card-body">
                 {props.children}
             </div>
