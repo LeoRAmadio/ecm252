@@ -5,6 +5,7 @@
 import React from 'react'
 import Hippo from './Hippo'
 import EstacaoClimatica from './EstacaoClimatica'
+import Loading from './Loading'
 
 class App extends React.Component {
 
@@ -12,7 +13,6 @@ class App extends React.Component {
     latitude: null,
     longitude: null,
     estacao: null,
-    data: null,
     icone: null,
     mensagemDeErro: null
   }
@@ -103,7 +103,6 @@ class App extends React.Component {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
           estacao: estacao.nome,
-          data: dataAtual.toLocaleTimeString(),
           icone: icone
         })
 
@@ -135,16 +134,29 @@ class App extends React.Component {
         <div className='row justify-content-center'>
           {/* .col-sm-12.col-lg-6.col-xxl-4 */}
           <div className="col-sm-12 col-lg-6 col-xxl-4">
-              
-            <EstacaoClimatica
-              latitude = {this.state.latitude}
-              longitude = {this.state.longitude}
-              estacao = {this.state.estacao}
-              icone = {this.state.icone}
-              data = {this.state.data}
-              mensagemDeErro={this.state.mensagemDeErro}
-              obterLocalizacao={this.obterLocalizacao}
+            {
+              (!this.state.latitude && !this.state.mensagemDeErro) ?
+              <Loading mensagem="Por favor, responda à solicitação de localização" />
+              :
+
+                this.state.mensagemDeErro ?
+
+                //p.border.rounded.p-2.fs-1.text-center
+                <p className="border rounded p-2 fs-1 text-center">
+                  É preciso dar permissão para acesso à localização
+                </p>
+                :
+
+                  <EstacaoClimatica
+                  latitude = {this.state.latitude}
+                  longitude = {this.state.longitude}
+                  estacao = {this.state.estacao}
+                  icone = {this.state.icone}
+                  mensagemDeErro={this.state.mensagemDeErro}
+                  obterLocalizacao={this.obterLocalizacao}
               />
+            }
+            
 
           </div>
         </div>

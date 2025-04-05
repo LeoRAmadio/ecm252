@@ -8,7 +8,7 @@ export default class EstacaoClimatica extends Component {
         data: null
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.timer = setInterval(() => {
             //atualizar o estado, extraindo novo data do sistema,
             //lembre-se de formata-la de alguma forma
@@ -19,7 +19,7 @@ export default class EstacaoClimatica extends Component {
         console.log(this.timer)
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         clearInterval(this.timer)
     }
 
@@ -40,13 +40,9 @@ export default class EstacaoClimatica extends Component {
                         <p className="text-center">
                             {
                                 this.props.latitude ?
-                                    `Coordenadas: ${this.props.latitude}, ${this.props.longitude}. 
-                  Data: ${this.state.data}`
+                                        `Coordenadas: ${this.props.latitude}, ${this.props.longitude}. 
+                                        Data: ${this.state.data}`
                                     :
-                                    this.props.mensagemDeErro ?
-                                        `${mensagemDeErro}`
-                                        :
-
                                         'Clique no botão para saber sua estação'
                             }
                         </p>
